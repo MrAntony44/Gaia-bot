@@ -1,3 +1,27 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.Servo;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.VuforiaFG2019;
+import com.qualcomm.hardware.bosch.BNO055IMU;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import java.util.concurrent.TimeUnit;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import org.firstinspires.ftc.robotcore.external.JavaUtil;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.VuforiaBase;
+import org.firstinspires.ftc.robotcore.external.navigation.VuforiaFG2019;
+
 @TeleOp(name="driveJava", group="Pushbot")
 public class DriveJava extends LinearOpMode {
     
@@ -43,9 +67,7 @@ public class DriveJava extends LinearOpMode {
         lift_servo2 = hardwareMap.get(Servo.class , "lift_servo2");
         lift_servo1 = hardwareMap.get(Servo.class , "lift_servo1");
         angle_servo = hardwareMap.get(Servo.class , "angle_servo");
-        
-//ervo");
-//servo = hrdwareMap.get(Servo.class , "Test_servo");
+
 
         lift_thing = hardwareMap.get(DcMotorEx.class ,"lift_thing");
         heavy = hardwareMap.get(DcMotorEx.class, "heavy");
