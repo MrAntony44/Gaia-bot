@@ -102,5 +102,39 @@ public class DriveJava extends LinearOpMode {
     if(gamepad1.right_bumper){ //Disables gyro, sets to -Math.PI/2 so front is defined correctly. 
         gyroAngle = -Math.PI/2;
         }
+    
+
+    theta = Math.atan2(stick_y, stick_x) - gyroAngle - (Math.PI / 2);
+    Px = Math.sqrt(Math.pow(stick_x, 2) + Math.pow(stick_y, 2)) * (Math.sin(theta + Math.PI / 4));
+    Py = Math.sqrt(Math.pow(stick_x, 2) + Math.pow(stick_y, 2)) * (Math.sin(theta - Math.PI / 4));
+    telemetry.addData("Stick_X", stick_x);
+    telemetry.addData("Stick_Y", stick_y);
+    telemetry.addData("Magnitude",  Math.sqrt(Math.pow(stick_x, 2) + Math.pow(stick_y, 2)));
+    telemetry.addData("Front Left", Py - Protate);
+    telemetry.addData("Back Left", Px - Protate);
+    telemetry.addData("Back Right", Py + Protate);
+    telemetry.addData("Front Right", Px + Protate);
+    
+    front_left_wheel.setPower(Py - Protate);
+    back_left_wheel.setPower(Px - Protate);
+    back_right_wheel.setPower(Py + Protate);
+    front_right_wheel.setPower(Px + Protate);
+}
+public void resetAngle(){
+    if(gamepad1.a){
+        reset_angle = getHeading() + reset_angle;
+        }
+    }
+    public double getHeading(){
+        Orientation angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        double heading = angles.firstAngle;
+        if(heading < -180) {
+            heading = heading + 360;
+        }
+        else if(heading > 180){
+            heading = heading - 360;
+        }
+        heading = heading - reset_angle;
+        return heading;
     }
 }
