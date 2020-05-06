@@ -179,6 +179,7 @@ public class DriveJava extends LinearOpMode {
             front_right_wheel.setPower(0);
         }
     }
+
     public void drive(){
          double Protate = gamepad1.right_stick_x/4;
          double stick_x = gamepad1.left_stick_x * Math.sqrt(Math.pow(1-Math.abs(Protate), 2)/2); //Accounts for Protate when limiting magnitude to be less than 1
@@ -191,9 +192,6 @@ public class DriveJava extends LinearOpMode {
          double lift = 0;
 
          double gyroAngle = getHeading() * Math.PI / 180; //Converts gyroAngle into radians
-
-
-
                 if (gyroAngle <= 0) { 
             gyroAngle = gyroAngle + (Math.PI / 2);
             } else if (0 < gyroAngle && gyroAngle < Math.PI / 2) {
@@ -203,6 +201,8 @@ public class DriveJava extends LinearOpMode {
             }
             gyroAngle = -1 * gyroAngle;
         
-        if(gamepad1.right_bumper){ //Disables gyro, sets to -Math.PI/2 so front is defined correctly. 
-            gyroAngle = -Math.PI/2;
+    if(gamepad1.right_bumper){ //Disables gyro, sets to -Math.PI/2 so front is defined correctly. 
+        gyroAngle = -Math.PI/2;
         }
+    }
+}
