@@ -1,4 +1,3 @@
-# RTTR-repository
-Εδώ ανεβάζουμε ό,τι αφορά τον κώδικα του RTTR.
+# GAIA BOT
+Here you can find the code used to control TeamGreece's __*"Gaia Bot"*__, constructed for the __"Robots To The Rescue student design challenge"__!  
 
-__*Στο branch Poseidon Code μπορείτε να πάρετε έμπνευση και στο RTTR-new-code κάνετε upload τον κώδικά σας.*__
